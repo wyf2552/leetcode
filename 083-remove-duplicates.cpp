@@ -2,15 +2,16 @@
 
 using namespace std;
 
-/**
- * Definition for singly-linked list.
- * struct ListNode {
- *     int val;
- *     ListNode *next;
- *     ListNode() : val(0), next(nullptr) {}
- *     ListNode(int x) : val(x), next(nullptr) {}
- *     ListNode(int x, ListNode *next) : val(x), next(next) {}
- * };
+/*
+给定一个已排序的链表的头 head ， 删除所有重复的元素，使每个元素只出现一次 。返回 已排序的链表 。
+
+示例 1：
+输入：head = [1,1,2]
+输出：[1,2]
+
+示例 2：
+输入：head = [1,1,2,3,3]
+输出：[1,2,3]
  */
 class Solution {
 public:
