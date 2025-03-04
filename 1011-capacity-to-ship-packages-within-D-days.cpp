@@ -39,41 +39,40 @@ using namespace std;
 */
 class Solution {
 public:
-    // 检查给定运载能力是否能在指定天数内运完货物
     bool canShip(vector<int>& weights, int days, int capacity) {
-        int currentDays = 1;  // 当前需要的天数
-        int currentLoad = 0;  // 当前这天的累计重量
+        int currentDays = 1;
+        int currentLoad = 0;
 
-        for (int weight : weights) {
-            if (weight > capacity) return false;  // 单个货物超过运载能力
+        for (int i = 0; i < weights.size(); i++) {
+            int weight = weights[i];
+
+            if (weight > capacity) {
+                return false;
+            }
 
             if (currentLoad + weight > capacity) {
-                currentDays++;  // 需要新的一天
+                currentDays++;
                 currentLoad = weight;
             } else {
                 currentLoad += weight;
             }
         }
-
         return currentDays <= days;
     }
 
     int shipWithinDays(vector<int>& weights, int days) {
-        // 确定二分查找的范围
-        int left = *max_element(weights.begin(), weights.end());  // 最小运载能力
-        int right = accumulate(weights.begin(), weights.end(), 0);  // 最大运载能力
+        int left = *max_element(weights.begin(), weights.end());
+        int right = accumulate(weights.begin(), weights.end(), 0);
 
-        // 二分查找
         while (left < right) {
             int mid = left + (right - left) / 2;
 
             if (canShip(weights, days, mid)) {
-                right = mid;  // 尝试更小的运载能力
+                right = mid;
             } else {
-                left = mid + 1;  // 需要更大的运载能力
+                left = mid + 1;
             }
         }
-
         return left;
     }
 };
