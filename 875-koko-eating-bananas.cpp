@@ -25,6 +25,8 @@ public:
     bool canEatAll(vector<int>& piles, int speed, int h) {
         long hours = 0;
         for (int i = 0; i < piles.size(); i++) {
+            int pile = piles[i];
+            
             hours += (pile + speed - 1) / speed;
             if (hours > h) {
                 return false;
