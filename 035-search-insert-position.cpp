@@ -29,7 +29,7 @@ public:
 
         if (nums[mid] == target) {
             return mid;
-        } else (nums[mid] < target) {
+        } else if (nums[mid] < target) {
             left = mid + 1;
         } else {
             right = mid;
