@@ -22,7 +22,7 @@ using namespace std;
 class Solution {
 public:
     int peakIndexMountainArray(vector<int>& arr) {
-        int left = =0;
+        int left = 0;
         int right = arr.size() - 1;
 
         while (left < right) {
