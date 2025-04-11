@@ -21,7 +21,7 @@ using namespace std;
 */
 class Solution {
 public:
-    void flatten(treeNode* root) {
+    void flatten(TreeNode* root) {
         if (!root) {
             return;
         }
