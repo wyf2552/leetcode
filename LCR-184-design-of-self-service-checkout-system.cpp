@@ -22,16 +22,18 @@ remove()：移除第一个待结算的商品价格，如果队列为空，则返
 */
 
 class Checkout {
+private:
     int q[20000];
     int begin = 0, end = 0;
+
 public:
-    Checkout() {
-    }
+    Checkout() {}
 
     int get_max() {
         int ans = -1;
-        for (int i = begin; i != end; ++i)
+        for (int i = begin; i != end; ++i) {
             ans = max(ans, q[i]);
+        }
         return ans;
     }
 
@@ -40,8 +42,9 @@ public:
     }
 
     int remove() {
-        if (begin == end)
+        if (begin == end) {
             return -1;
+        }
         return q[begin++];
     }
 };
